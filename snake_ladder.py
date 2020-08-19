@@ -36,6 +36,9 @@ class SnakeLadder:
             self.player_position += dice_value
             if self.snake_positions.get(self.player_position):
                 self.player_position = self.snake_positions.get(self.player_position)
+            print("Player moved to:" + str(self.player_position))
+            turns -= 1
+        print("Game end!!! Exit")
 
 
 def main():
