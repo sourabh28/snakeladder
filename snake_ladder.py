@@ -19,6 +19,16 @@ class Input:
             print("Please input valid dice type (N/C)")
             self.input_dice_type()
 
+    def input_snake_positions(self):
+        snake_positions = input("Enter snake positions (start, end) comma separated e.g. (31,8), (40,12), (58, 20), (65, 30)")
+        start_end_positions = snake_positions.split(",")
+        if all(isinstance(eval(position), tuple) for position in start_end_positions):
+            return snake_positions
+        else:
+            print("Please input valid snake positions in format mentioned e.g. (31,8), (40,12)")
+            self.input_snake_positions()
+
+
 
 class SnakeLadder:
 
@@ -46,7 +56,7 @@ def main():
     inp = Input()
     turns = inp.input_turns()
     dice_type = inp.input_dice_type()
-    snake_positions = input("Enter snake positions comma separated e.g. 31, 40, 58, 65")
+    snake_positions = inp.input_snake_positions()
     input("Press Enter to continue......")
 
     SnakeLadder(snake_positions).start_game(turns, dice_type)
