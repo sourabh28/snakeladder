@@ -38,7 +38,6 @@ class SnakeLadder:
 
     def __init__(self, snake_positions):
         self.player_position = 1
-        print(snake_positions)
         self.snake_positions = {position[0]: position[1] for position in snake_positions}
 
     @staticmethod
